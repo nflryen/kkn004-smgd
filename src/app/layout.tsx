@@ -35,7 +35,9 @@ export const metadata: Metadata = {
   title: 'KKN 004 UIN Saizu Somagede 2026',
   description: 'Portal Pengabdian Masyarakat & Digital Atlas Desa Somagede',
   icons: {
-    icon: '/assets/logos/kkn004somagede.png',
+    icon: [
+      { url: '/assets/logos/kkn004somagede.png', href: '/assets/logos/kkn004somagede.png' }
+    ],
     shortcut: '/assets/logos/kkn004somagede.png',
     apple: '/assets/logos/kkn004somagede.png',
   },
