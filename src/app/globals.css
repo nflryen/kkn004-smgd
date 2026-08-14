@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: var(--bg-primary);
+  --color-surface: var(--bg-surface);
+  --color-emerald: var(--accent-emerald);
+  --color-teal: var(--accent-teal);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-novatica: var(--font-novatica), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Light Editorial Theme Default (Warm Canvas & Forest Emerald) */
+:root {
+  --bg-primary: #FBFBF9;
+  --bg-surface: #FFFFFF;
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-bg-hover: #FFFFFF;
+  --glass-border: rgba(17, 24, 39, 0.08);
+  --glass-border-glow: rgba(15, 56, 44, 0.3);
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --accent-emerald: #0F382C;
+  --accent-teal: #155443;
+}
+
+/* Dark Mode Support */
+html.dark {
+  --bg-primary: #0F172A;
+  --bg-surface: #1E293B;
+  --glass-bg: rgba(30, 41, 59, 0.85);
+  --glass-bg-hover: rgba(30, 41, 59, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-glow: rgba(59, 130, 246, 0.4);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --accent-emerald: #0F382C;
+  --accent-teal: #10B981;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Subtle SVG Grain Texture Overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Ambient Radial Glow Background */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(15, 56, 44, 0.05) 0%, rgba(15, 56, 44, 0.01) 50%, transparent 80%);
+}
+
+/* Leaflet Container Styling */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 480px !important;
+  border-radius: 1.5rem;
+  background: #F4F4F0 !important;
+  z-index: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #111827 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
+
+/* Custom Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Clean Editorial Card Utility */
+.glass-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(15, 56, 44, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(15, 56, 44, 0.08);
+  transform: translateY(-2px);
+}
