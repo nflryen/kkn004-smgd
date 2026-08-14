@@ -126,18 +126,15 @@ export function StoryDetailClient({ story, slug }: { story: any; slug: string })
   const bodyContent = story.body || story.content;
 
   return (
-    <main className="min-h-screen bg-[#FBFBF9] w-full flex flex-col relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#FBFBF9] text-[#111827] w-full flex flex-col relative overflow-x-hidden pt-28 md:pt-36 pb-20">
       {/* Top Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#0F382C] z-[100] origin-left shadow-xs"
         style={{ scaleX }}
       />
 
-      {/* Header Spacer */}
-      <div className="h-28 md:h-36 w-full flex-shrink-0" />
-
       {/* Main Article Container */}
-      <div className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 pb-28 md:pb-16 flex flex-col">
+      <div className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-2 flex flex-col">
 
         {/* Navigation Bar & Share */}
         <div className="flex items-center justify-between gap-4 mb-8">
