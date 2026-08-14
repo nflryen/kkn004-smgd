@@ -9,44 +9,127 @@ import { SplitMapInspector } from "./SplitMapInspector";
 import { parseLocationCoordinates, type LocationData } from "./LocationDetailModal";
 import { Layers, Map as MapIcon, Globe } from "lucide-react";
 
-const DUMMY_LOCATIONS: LocationData[] = [
+export const DUMMY_LOCATIONS: LocationData[] = [
   {
-    id: "1",
-    name: "Wisata Alam & Hutan Somagede",
-    category: "Wisata",
-    latitude: -7.5250,
-    longitude: 109.3280,
-    description: "Kawasan hutan pinus dan panorama perbukitan yang asri khas Desa Somagede.",
-    gmapsUrl: "https://maps.google.com/?q=-7.5250,109.3280",
+    id: "umkm-1",
+    name: "Mie Ayam Pak Eko",
+    title: "Mie Ayam Pak Eko",
+    category: "UMKM",
+    latitude: -7.5270,
+    longitude: 109.3305,
+    gmapsUrl: "https://maps.app.goo.gl/8CPvfA5twFKtUR1h8?g_st=aw",
+    description: "Kuliner mie ayam legendaris yang telah berjalan selama 13 tahun dengan racikan personal. Menyajikan mie ayam original, mie ayam ceker spesial, kepala, hingga bakso. Berlokasi strategis di depan Puskesmas Somagede.",
+    whatsappContact: "085643384168",
+    operationalHours: "09.00 - 21.00 WIB (Buka Setiap Hari)"
   },
   {
-    id: "2",
-    name: "UMKM Gula Jawa Bp. Slamet",
+    id: "umkm-2",
+    name: "Intan Kripik",
+    title: "Intan Kripik",
     category: "UMKM",
-    latitude: -7.5320,
+    latitude: -7.5245,
+    longitude: 109.3290,
+    gmapsUrl: "https://share.google/PVzzLaAzfMRwbjykO",
+    description: "Sentra olahan keripik dan sriping renyah khas Somagede yang berdiri sejak 15 tahun lalu. Menyediakan sriping original serta varian rasa kekinian seperti coklat, matcha, tiramisu, dan strawberry. Berlokasi di sebelah utara SMK Muhammadiyah Somagede.",
+    whatsappContact: "085227505004",
+    operationalHours: "Buka Setiap Hari"
+  },
+  {
+    id: "umkm-3",
+    name: "Dapur Roti Gamol",
+    title: "Dapur Roti Gamol",
+    category: "UMKM",
+    latitude: -7.5295,
+    longitude: 109.3325,
+    gmapsUrl: "https://share.google/PVzzLaAzfMRwbjykO",
+    description: "Produsen roti modern dengan kapasitas 100 pcs per hari dan aneka pilihan rasa premium, mulai dari coklat keju, tiramisu crunchy, hingga abon mayo pedas gurih. Berlokasi di belakang SDN 01 Somagede.",
+    whatsappContact: "085742028456",
+    operationalHours: "Buka Setiap Hari"
+  },
+  {
+    id: "umkm-4",
+    name: "Annajah Ice Cream",
+    title: "Annajah Ice Cream",
+    category: "UMKM",
+    latitude: -7.5310,
+    longitude: 109.3285,
+    gmapsUrl: "https://maps.app.goo.gl/y5csw4AhNTR6LPoz6",
+    description: "Penyedia aneka es tradisional dan es krim segar ramah anak (es mambo, es gabus, es lilin, hingga es krim cup varian matcha, durian, dan coklat). Berlokasi dekat TPQ Al-Irsyad Somagede.",
+    whatsappContact: "085712862146",
+    operationalHours: "Buka Setiap Hari"
+  },
+  {
+    id: "umkm-5",
+    name: "Bakso Cuanki Mba Desti",
+    title: "Bakso Cuanki Mba Desti",
+    category: "UMKM",
+    latitude: -7.5280,
+    longitude: 109.3360,
+    gmapsUrl: "https://maps.app.goo.gl/veK3Gk6tCWk19HEy8",
+    description: "Kuliner bakso cuanki favorit yang telah beroperasi selama 7 tahun dengan kapasitas 150 porsi harian. Menyajikan bakso telur puyuh, bakso mercon pedas, bakso urat, daging, hingga bakso beranak. Berlokasi di Pasar Somagede arah Taman Loka Asri.",
+    whatsappContact: "083891370601",
+    operationalHours: "10.00 WIB - Habis (Buka Setiap Hari)"
+  },
+  {
+    id: "umkm-6",
+    name: "Mie Ayam Siam",
+    title: "Mie Ayam Siam",
+    category: "UMKM",
+    latitude: -7.5260,
     longitude: 109.3340,
-    description: "Sentra produksi gula jawa olahan penderes kelapa tradisional Somagede.",
-    whatsappContact: "6281234567890",
-    gmapsUrl: "https://maps.google.com/?q=-7.5320,109.3340",
+    gmapsUrl: "https://maps.app.goo.gl/5yHjhYZjEk4p5T4JA",
+    description: "Warung mie ayam legendaris dengan resep otentik selama 18 tahun pelayanan. Menawarkan kelezatan mie ayam original yang konsisten dan lezat. Berlokasi di Jl. Raya Somagede (sebelah KOPDES Merah Putih).",
+    whatsappContact: "085647608522",
+    operationalHours: "08.00 - 20.00 WIB (Buka Setiap Hari)"
   },
   {
-    id: "3",
-    name: "Balai Desa Somagede",
-    category: "Fasilitas Publik",
-    latitude: -7.5285,
-    longitude: 109.3315,
-    description: "Pusat pemerintahan dan pelayanan publik Desa Somagede.",
-    gmapsUrl: "https://maps.google.com/?q=-7.5285,109.3315",
-  },
-  {
-    id: "4",
-    name: "Sentra Edukasi Pertanian Somagede",
+    id: "umkm-7",
+    name: "Ondol-Ondol Mbah Ribut",
+    title: "Ondol-Ondol Mbah Ribut",
     category: "UMKM",
-    latitude: -7.5360,
-    longitude: 109.3270,
-    description: "Kawasan budidaya hortikultura dan edukasi pertanian pangan rakyat.",
-    gmapsUrl: "https://maps.google.com/?q=-7.5360,109.3270",
+    latitude: -7.5335,
+    longitude: 109.3310,
+    gmapsUrl: "https://maps.app.goo.gl/Qp5TaTY7G3LtHxUJ7",
+    description: "Jajanan sarapan tradisional khas Banyumasan: ondol-ondol gurih, niwon, dan combro hangat yang dibuat fresh setiap fajar. Berlokasi di Jl. Turi (depan Masjid Nurul Hikmah Karanganyar).",
+    whatsappContact: "08132639512",
+    operationalHours: "04.30 - 08.00 WIB (Pagi)"
   },
+  {
+    id: "umkm-8",
+    name: "Kembar Fried Chicken",
+    title: "Kembar Fried Chicken",
+    category: "UMKM",
+    latitude: -7.5290,
+    longitude: 109.3330,
+    gmapsUrl: "https://maps.app.goo.gl/5qbw24riimcLr4Xt5",
+    description: "Ayam goreng krispi gurih dengan potongan paha, dada, sayap, ceker, dan ati ampela renyah dengan harga terjangkau. Berlokasi tepat di depan SDN 01 Somagede.",
+    whatsappContact: "085779009431",
+    operationalHours: "09.00 - 18.00 WIB"
+  },
+  {
+    id: "umkm-9",
+    name: "Ketupat Landan Mbah Dakem",
+    title: "Ketupat Landan Mbah Dakem",
+    category: "UMKM",
+    latitude: -7.5345,
+    longitude: 109.3295,
+    gmapsUrl: "https://maps.app.goo.gl/8CPvfA5twFKtUR1h8",
+    description: "Sentra perajin ketupat landan tradisional legendaris selama 40 tahun dengan kapasitas produksi 30 kg beras per hari. Menghasilkan ketupat pulen kenyal khas tradisi lokal Somagede.",
+    whatsappContact: "085747953123",
+    operationalHours: "Buka Setiap Hari"
+  },
+  {
+    id: "wisata-10",
+    name: "Galeri Seni Jaran Kepang Taruna Karya",
+    title: "Galeri Seni Jaran Kepang Taruna Karya",
+    category: "Wisata",
+    latitude: -7.5235,
+    longitude: 109.3350,
+    gmapsUrl: "https://maps.app.goo.gl/8CPvfA5twFKtUR1h8",
+    description: "Pusat pelestarian seni budaya dan kerajinan kesenian jaran kepang / ebeg tradisional khas Desa Somagede yang dikelola oleh Bapak Eko Teguh Prayitno.",
+    whatsappContact: "081558098067",
+    operationalHours: "Sesuai Jadwal Kegiatan"
+  }
 ];
 
 // Initial Center (Balai Desa Somagede)
@@ -58,7 +141,7 @@ const createCustomIcon = (category: string, index: number = 0) => {
   if (category === "Wisata") colorClass = "bg-emerald-600";
   if (category === "Fasilitas Publik") colorClass = "bg-blue-600";
 
-  const delaySec = (index * 0.12 + 0.3).toFixed(2);
+  const delaySec = (index * 0.08 + 0.2).toFixed(2);
 
   return L.divIcon({
     className: "bg-transparent border-none",
@@ -129,7 +212,7 @@ export default function VillageMap({ potencies }: { potencies?: LocationData[] }
             onClick={() => setTileProvider("satellite")}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
               tileProvider === "satellite"
-                ? "bg-[#0F382C] text-white shadow-xs"
+                ? "bg-[#0F382C] text-[#ffffff] shadow-xs"
                 : "text-gray-700 hover:bg-neutral-100"
             }`}
             title="Google Satelit Hibrida"
@@ -141,7 +224,7 @@ export default function VillageMap({ potencies }: { potencies?: LocationData[] }
             onClick={() => setTileProvider("roadmap")}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
               tileProvider === "roadmap"
-                ? "bg-[#0F382C] text-white shadow-xs"
+                ? "bg-[#0F382C] text-[#ffffff] shadow-xs"
                 : "text-gray-700 hover:bg-neutral-100"
             }`}
             title="Google Peta Vektor"
@@ -153,7 +236,7 @@ export default function VillageMap({ potencies }: { potencies?: LocationData[] }
             onClick={() => setTileProvider("light")}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
               tileProvider === "light"
-                ? "bg-[#0F382C] text-white shadow-xs"
+                ? "bg-[#0F382C] text-[#ffffff] shadow-xs"
                 : "text-gray-700 hover:bg-neutral-100"
             }`}
             title="Peta Terang Carto"

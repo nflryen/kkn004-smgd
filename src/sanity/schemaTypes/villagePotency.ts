@@ -60,6 +60,12 @@ export default defineType({
       description: 'Gunakan format 628..., contoh: 6281234567890',
     }),
     defineField({
+      name: 'operationalHours',
+      title: 'Jam Operasional (Opsional)',
+      type: 'string',
+      description: 'Contoh: 09.00 - 21.00 WIB (Buka Setiap Hari)',
+    }),
+    defineField({
       name: 'coverImage',
       title: 'Foto Lokasi (Cover Image)',
       type: 'image',

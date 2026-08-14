@@ -16,6 +16,7 @@ export interface LocationData {
   coverImage?: string;
   description: string;
   whatsappContact?: string;
+  operationalHours?: string;
 }
 
 export function parseLocationCoordinates(loc: Partial<LocationData>): { latitude: number; longitude: number } {

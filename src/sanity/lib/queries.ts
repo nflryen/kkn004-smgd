@@ -22,6 +22,7 @@ export const VILLAGE_POTENCY_QUERY = groq`*[_type == "villagePotency" && !(_id i
   longitude,
   description,
   whatsappContact,
+  operationalHours,
   "coverImage": coalesce(coverImage.asset->url, image.asset->url)
 }`
 

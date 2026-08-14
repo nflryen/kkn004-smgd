@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Map as MapIcon, Phone, ExternalLink, Compass } from "lucide-react";
+import { X, Map as MapIcon, Phone, ExternalLink, Compass, Clock } from "lucide-react";
 import { parseLocationCoordinates, type LocationData } from "./LocationDetailModal";
 
 interface SplitMapInspectorProps {
@@ -78,9 +78,17 @@ export function SplitMapInspector({ location, onClose }: SplitMapInspectorProps)
 
         {/* Main Body Info */}
         <div className="flex-1 p-6 flex flex-col overflow-y-auto">
-          <h3 className="text-2xl font-novatica font-bold text-[#111827] mb-3 leading-snug">
+          <h3 className="text-2xl font-novatica font-bold text-[#111827] mb-2 leading-snug">
             {locationTitle}
           </h3>
+
+          {location.operationalHours && (
+            <div className="inline-flex items-center gap-1.5 mb-3 text-xs font-semibold text-[#0F382C] bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200/80 w-fit">
+              <Clock className="w-3.5 h-3.5 text-[#0F382C]" />
+              <span>{location.operationalHours}</span>
+            </div>
+          )}
+
           <p className="text-[#4B5563] text-sm md:text-base leading-relaxed mb-6 flex-1">
             {location.description}
           </p>
@@ -167,6 +175,14 @@ export function SplitMapInspector({ location, onClose }: SplitMapInspectorProps)
               <h3 className="text-2xl font-novatica font-bold text-[#111827] mb-2 leading-snug">
                 {locationTitle}
               </h3>
+
+              {location.operationalHours && (
+                <div className="inline-flex items-center gap-1.5 mb-3 text-xs font-semibold text-[#0F382C] bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200/80 w-fit">
+                  <Clock className="w-3.5 h-3.5 text-[#0F382C]" />
+                  <span>{location.operationalHours}</span>
+                </div>
+              )}
+
               <p className="text-[#4B5563] text-sm leading-relaxed mb-6">
                 {location.description}
               </p>
