@@ -4,10 +4,11 @@ import { client } from "@/sanity/lib/client";
 import { VILLAGE_POTENCY_QUERY } from "@/sanity/lib/queries";
 import type { LocationData } from "@/components/map/LocationDetailModal";
 
-export const revalidate = 60;
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function PetaPage() {
-  const potencies = (await client.fetch(VILLAGE_POTENCY_QUERY).catch(() => [])) as LocationData[];
+  const potencies = (await client.fetch(VILLAGE_POTENCY_QUERY, {}, { cache: "no-store" }).catch(() => [])) as LocationData[];
 
   return (
     <main className="min-h-screen bg-[#FBFBF9] text-[#111827] w-full flex flex-col pt-28 md:pt-36 pb-20">
